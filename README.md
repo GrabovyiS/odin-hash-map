@@ -1,4 +1,5 @@
-#Odin hash map
+# Odin hash map
+
 Some notes about this implementation of hash map from the curriculum.
 
 Firstly, it suggests that every time you access a bucket with an index, you should use a check like this:
@@ -17,5 +18,7 @@ Secondly, the idea of growing the table when there are too many items for too li
 Thirdly, making .length a method that traverses the whole DS with O(n) and counts up the elements seems time inefficient. Instead of this, one could keep track of the length inside methods like set() and remove(), adding a constant number of steps to each of these operations for a trade off of having .length at constant time. That might be important because on every call of set() you make a check to see if it is time to grow the table using .length. If getting length is in O(n) time, set() is now executed in O(n) time as well, which means we loose a good chunk of the time complexity appeal of hash table with this implementation.
 
 Lastly, it would be nice to utilize more of the LinkedList methods from the previous assignment here, but some of them just were not optimized for working with lists of objects and not primitives. For example, a .find(value) in a "primitives" list searches by value. When working with key-value pairs, we would like to search by keys, not by equality of the whole objects. It would also be nice to have a linked list method that would return the contents of the list as an array. I didn't refactor the linked list for the hash-map.
+
+## Hash set
 
 I took some of these considerations into account when implementing hash set: no longer using the check for index being out of bounds, storing length as a totalKeys property and keeping track of length inside set() and remove() (presumably making performance of set() better), utilizing more of the LinkedList methods as hash set can work with primitives, adding a LinkedList method that return its contents as an array for keys() method of the hash set. Using more LinkedList methods made code much cleaner, better, more readable since the implementation of hash set itself no longer contains low level implementation of things related to linked list like search and traversal.
