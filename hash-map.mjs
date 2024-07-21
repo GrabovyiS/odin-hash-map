@@ -201,6 +201,13 @@ const hashMap = new HashMap();
 hashMap.set('apple', 'red');
 hashMap.set('banana', 'yellow');
 hashMap.set('carrot', 'orange');
+console.log('Entries before clear():', hashMap.entries());
+hashMap.clear();
+console.log('Entries after clear():', hashMap.entries());
+
+hashMap.set('apple', 'red');
+hashMap.set('banana', 'yellow');
+hashMap.set('carrot', 'orange');
 
 hashMap.set('dog', 'brown');
 hashMap.set('dog', 'white');
