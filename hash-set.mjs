@@ -77,13 +77,8 @@ class HashSet {
 
   keys() {
     let storedKeys = [];
-    for (const bucket of this.buckets) {
-      let currentElement = bucket.head;
-
-      while (currentElement) {
-        storedKeys.push(currentElement.value);
-        currentElement = currentElement.nextNode;
-      }
+    for (const bucketList of this.buckets) {
+      storedKeys = storedKeys.concat(bucketList.toArray());
     }
 
     return storedKeys;
