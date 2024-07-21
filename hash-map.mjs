@@ -177,6 +177,7 @@ class HashMap {
   grow() {
     const oldBuckets = this.buckets;
     this.buckets = new Array(oldBuckets.length * 2);
+
     for (let i = 0; i < this.buckets.length; i++) {
       this.buckets[i] = new LinkedList();
     }
